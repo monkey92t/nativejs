@@ -1,9 +1,9 @@
-<script type="text/javascript">
 var pandaReader = function(json){
     var url = "wx://pandareader/" + json;
     location.href = url
 }
 
+//分享的数据
 var sharedata = {
     "apiName": "native_call",
     "params": {
@@ -28,5 +28,26 @@ var sharedata = {
     }
 }
 
-pandaReader(JSON.stringify(sharedata))
-</script>
+//调用分享
+pandaReader(JSON.stringify(sharedata));
+
+//调用书籍详情信息页面
+var callBookInfo = function(bookid, bookname, booktype) {
+    var bookdata = {
+        apiName: "view_to",
+        params: {
+            screen: "jump_to_bookcover",
+            data: {
+                bookid: bookid.toString(),
+                siteid: "0",
+                bookname: encodeURIComponent(bookname),
+                booktype: booktype.toString(),
+            },
+            handleId: ""
+        }
+    };
+
+    pandaReader(JSON.stringify(bookdata));
+}
+
+callBookInfo(15300218, "乡村小游医", 0);
