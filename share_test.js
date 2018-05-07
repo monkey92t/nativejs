@@ -32,5 +32,6 @@ $(window).on("native:callback", function(e,handleId, json){
             break;
         default:
             console.log("error: unkn callback.");
+            break;
     }
 });
