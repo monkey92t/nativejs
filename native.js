@@ -29,6 +29,19 @@ var $ = Zepto || {};
         location.href = u;
     }
 
+    $.WX.scToast = function(msg) {
+        this.WXPandaReader(JSON.stringify({
+            apiName: "native_call",
+            params: {
+                appFunc: "show_toast",
+                data: {
+                    msg: msg
+                },
+                handleId: ""
+            }
+        }))
+    };
+
     $.WX.WXPandaReader = function(j) {
         switch ($.WX.os) {
             case OS_ANDROID:
