@@ -42,6 +42,19 @@ var $ = Zepto || {};
         }))
     };
 
+    $.WX.callProtocol = function(u) {
+        $.WX.WXPandaReader(JSON.stringify({
+            "apiName" : "native_call",
+            "params" : {
+                "appFunc" : "protocol",
+                "data" : {
+                    "url" : u
+                },
+                "handleId" : ""
+            }
+        }));
+    };
+
     $.WX.WXPandaReader = function(j) {
         switch ($.WX.os) {
             case OS_ANDROID:
