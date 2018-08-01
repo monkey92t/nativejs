@@ -1,4 +1,4 @@
-var $ = Zepto || {};
+var $ = typeof($) != "undefined" ? $ : {};
 (function($) {
     $.WX = {};
     const OS_ANDROID = 1;
